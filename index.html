@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Sušenková pec</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./res/css/style.css">
+</head>
+<body>
+    <div id="app">
+      <main class="stage" id="stage">
+        <canvas id="bg"></canvas>
+        <div class="ticker" aria-live="off"><span id="news">Ve městě se otevřela nová pekárna.</span></div>
+        <div class="score">
+          <div class="count" id="count">0</div>
+          <div class="unit" id="unit">sušenek</div>
+          <div class="rate">za sekundu: <b id="rate">0</b></div>
+          <div class="buffs" id="buffs"></div>
+        </div>
+        <div class="center">
+          <div class="wrap" id="wrap">
+            <div class="halo"></div>
+            <div class="rays"></div>
+            <div class="rays b"></div>
+            <canvas id="orbit"></canvas>
+            <button id="cookie" aria-label="Upéct sušenku"><canvas id="cookieCv" width="600" height="600"></canvas></button>
+          </div>
+        </div>
+        <div class="combo" id="combo">
+          <div class="combo-top"><span>Kombo</span><b id="comboTxt">×1,00</b></div>
+          <div class="bar"><i id="comboBar"></i></div>
+        </div>
+        <div class="milk" id="milk"></div>
+        <button class="sound" id="sound" aria-pressed="true">Zvuk: zapnutý</button>
+        <button id="golden" hidden aria-label="Zlatá sušenka"><canvas id="goldCv" width="200" height="200"></canvas></button>
+      </main>
+
+      <aside class="shop">
+        <div class="shop-head">
+          <h2>Obchod</h2>
+          <div class="tabs" role="tablist">
+            <button class="tab" role="tab" id="t-b" aria-selected="true" data-p="p-b">Budovy</button>
+            <button class="tab" role="tab" id="t-u" aria-selected="false" data-p="p-u">Vylepšení<span class="dot" id="udot" hidden></span></button>
+            <button class="tab" role="tab" id="t-a" aria-selected="false" data-p="p-a">Úspěchy</button>
+            <button class="tab" role="tab" id="t-s" aria-selected="false" data-p="p-s">Statistiky</button>
+          </div>
+        </div>
+        <section class="panel" id="p-b" role="tabpanel">
+          <div class="amt">Kupovat po:
+            <button data-n="1" aria-pressed="true">1</button><button data-n="10" aria-pressed="false">10</button><button data-n="100" aria-pressed="false">100</button>
+          </div>
+          <div id="blds" style="display:flex;flex-direction:column;gap:8px"></div>
+        </section>
+        <section class="panel" id="p-u" role="tabpanel" hidden></section>
+        <section class="panel" id="p-a" role="tabpanel" hidden></section>
+        <section class="panel" id="p-s" role="tabpanel" hidden>
+          <dl class="stats" id="stats"></dl>
+          <div class="reset" id="reset">
+            <button class="btn" id="resetBtn">Začít znovu</button>
+          </div>
+        </section>
+      </aside>
+    </div>
+    <canvas id="fx"></canvas>
+    <div class="toasts" id="toasts"></div>
+
+    <script src="./res/js/script.js"></script>
+</body>
+</html>
